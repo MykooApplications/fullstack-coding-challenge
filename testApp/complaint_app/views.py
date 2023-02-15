@@ -1,9 +1,13 @@
+from http.client import HTTPResponse
 from rest_framework import viewsets
 from .models import UserProfile, Complaint
 from .serializers import UserSerializer, UserProfileSerializer, ComplaintSerializer
 from rest_framework.response import Response
 from rest_framework import status
+from django.shortcuts import render
+
 # Create your views here.
+
 
 class ComplaintViewSet(viewsets.ModelViewSet):
   http_method_names = ['get']
@@ -29,3 +33,4 @@ class TopComplaintTypeViewSet(viewsets.ModelViewSet):
   def list(self, request):
     # Get the top 3 complaint types from the user's district
     return Response()
+    

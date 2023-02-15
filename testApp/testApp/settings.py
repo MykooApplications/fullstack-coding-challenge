@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'complaint_app'
-    'complaint_app.apps.ComplaintAppConfig'
 ]
 
 MIDDLEWARE = [

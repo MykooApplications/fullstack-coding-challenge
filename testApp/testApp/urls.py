@@ -18,8 +18,12 @@ from django.urls import path, include
 from rest_framework.authtoken.views import obtain_auth_token
 
 urlpatterns = [
+    # path('', ),
     path('admin/', admin.site.urls),
     path('login/',obtain_auth_token, name='login'),
     path('api/complaints/', include('complaint_app.urls')),
-    path('complaints/', include('complaint_app.urls'))
+    path('complaints/', include('complaint_app.urls')),
+    path('', include('frontend.urls')),
+
+    # path('', include('frontend.urls'))
 ]

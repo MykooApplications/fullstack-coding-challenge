@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'rest_framework.authtoken',
-    'complaint_app'
+    'complaint_app',
+    'frontend'
 ]
 
 MIDDLEWARE = [

@@ -16,7 +16,6 @@ export default class AuthPage extends Component {
         return (
             <Router>
                 <Routes>
-                    <Route exact path='/'> <p>This is the Auth Page</p>  </Route>
                     <Route path='/login' component={LoginPage} />
                     <Route path='/dashboard' component={DashboardPage} />
                 </Routes>

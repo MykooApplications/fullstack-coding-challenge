@@ -23,7 +23,7 @@ urlpatterns = [
     path('login/',obtain_auth_token, name='login'),
     path('api/complaints/', include('complaint_app.urls')),
     path('complaints/', include('complaint_app.urls')),
-    path('', include('frontend.urls')),
+    # path('', include('frontend.urls')),
 
     # path('', include('frontend.urls'))
 ]

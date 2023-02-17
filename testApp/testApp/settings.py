@@ -41,6 +41,21 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'complaint_app',
     'frontend',
+    'corsheaders',
+]
+
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_HEADERS = [
+    'authorization',
+    # "accept",
+    # "accept-encoding",
+    # "authorization",
+    # "content-type",
+    # "dnt",
+    # "origin",
+    # "user-agent",
+    # "x-csrftoken",
+    # "x-requested-with",
 ]
 
 MIDDLEWARE = [
@@ -51,6 +66,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "corsheaders.middleware.CorsMiddleware",
 ]
 
 ROOT_URLCONF = 'testApp.urls'

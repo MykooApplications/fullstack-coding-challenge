@@ -2,25 +2,42 @@ import React, { Component } from 'react';
 // import logo from './logo.svg';
 import './App.css';
 import { render } from "react-dom";
-import AuthPage from "./components/AuthPage";
+import LoginPage from "./components/LoginPage"
 
-export default class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
 
-    }
+
+class connectReact extends React.Component {
+  componentDidMount(){
+    const complaintApiUrl = '';
+    fetch(complaintApiUrl)
+      .then((response) => response.json())
+      .then((data) => console.log(data));
   }
 
   render() {
     return (<div>
-      <AuthPage />
-    </div>
-    );
+      <h1>React testApp</h1>
+    </div>)
   }
 }
-const appDiv = document.getElementById("app");
-render(<App name="testApp" />, appDiv);
+
+// export default class App extends Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+
+//     }
+//   }
+
+//   render() {
+//     return (<div>
+//       <LoginPage />
+//     </div>
+//     );
+//   }
+// }
+// const appDiv = document.getElementById("app");
+// render(<App name="testApp" />, appDiv);
 
 // function App() {
 //   return (
@@ -43,7 +60,7 @@ render(<App name="testApp" />, appDiv);
 //   );
 // }
 
-//export default App;
+// export default App;
 
 
 

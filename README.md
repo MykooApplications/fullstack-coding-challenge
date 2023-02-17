@@ -1,5 +1,5 @@
 # Roshan Mykoo's Submission for the NYCC Coding Challenge
-<!-- # New York City Council Full Stack Coding Challenge
+ # New York City Council Full Stack Coding Challenge
 You will have **1 full week** to complete this challenge starting when you received the challenge from our office. You can submit your challenge using our [Google Form](https://forms.gle/HXCXFiVvFAJ3WzAc7).
 
 ## The Task
@@ -67,4 +67,4 @@ We’ve set up some starter code for you to use. For this challenge you will be 
 ### The React Side
 Create a button labelled “Complaints by My Constituents”. This button will trigger a GET request to a different endpoint than what you’ve been using for the MVP. The data return from this endpoint should replace the data in the table.
 
--->
+

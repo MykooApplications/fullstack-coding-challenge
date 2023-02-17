@@ -40,7 +40,9 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'complaint_app',
-    'frontend'
+    'frontend',
+    # 'djoser',
+    
 ]
 
 MIDDLEWARE = [

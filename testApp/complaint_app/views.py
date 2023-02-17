@@ -8,10 +8,19 @@ from rest_framework.views import APIView
 from django.shortcuts import render
 
 # Create your views here.
+# def home(request):
+#   return render(request, '')
 
-class AllComplaintsView(generics.ListAPIView):
-  queryset = Complaint.objects.all()
-  serializer_class = ComplaintSerializer
+# def sign_up(request):
+#   if request.method == 'POST':
+#     form = RegisterForm(request.POST)
+#   else:
+#       form = RegisterForm()
+#   return render(request,'', {"form": form})
+
+# class AllComplaintsView(generics.ListAPIView):
+#   queryset = Complaint.objects.all()
+#   serializer_class = ComplaintSerializer
 
 
 class ComplaintViewSet(viewsets.ModelViewSet):

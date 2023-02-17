@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 // import logo from './logo.svg';
 import './App.css';
-import { render } from "react-dom";
-import LoginPage from "./components/LoginPage"
+// import { render } from "react-dom";
+// import LoginPage from "./components/LoginPage"
 
 
 
@@ -20,7 +20,7 @@ class connectReact extends React.Component {
     </div>)
   }
 }
-
+export default connectReact;
 // export default class App extends Component {
 //   constructor(props) {
 //     super(props);

@@ -4,11 +4,8 @@ import './css/login.css';
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 
-
 //[{"name":"Inez Barron","district":"42",
 //"borough":"Brooklyn","political_party":"Democrat"}
-
-// const loginApiUrl = "http://localhost:8000/login/";
 
 const LoginContent = () => {
 
@@ -27,14 +24,12 @@ const LoginContent = () => {
 
         setAuthenticated(userAuth);
 
-
         if (authenticated) {
             console.log("GO TO DASHBOARD");
-            // navigate("/dashboard");
-            return (
-                navigate("/dashboard")
-            );
-
+            navigate("/dashboard");
+            // return (
+            //     navigate("/dashboard")
+            // );
         } else {
 
         }
@@ -44,9 +39,17 @@ const LoginContent = () => {
             password: password,
         })
         .then((response) => {
+            const splitDistrict = password.split("-");
+            const districtNumber = splitDistrict[1];
             console.log('login response');
             console.log(response.data);
+            console.log("token");
+            console.log(response.data.token);
+            console.log("district");
+            console.log(districtNumber);
             setAuthenticated(true)
+            localStorage.setItem("userDistrict", districtNumber);
+            localStorage.setItem("userToken", response.data.token);
             localStorage.setItem("isAuthenticated", true);
             console.log("GO TO DASHBAORD");
             return (

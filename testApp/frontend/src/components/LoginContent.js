@@ -2,7 +2,8 @@
 import React, { useState } from 'react';
 import './css/login.css';
 import axios from 'axios';
-// import {useNavigate} from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
+
 
 //[{"name":"Inez Barron","district":"42",
 //"borough":"Brooklyn","political_party":"Democrat"}
@@ -14,15 +15,28 @@ const LoginContent = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [authenticated, setAuthenticated] = useState(localStorage.getItem(localStorage.getItem("isAuthenticated") || false));
-
+    const navigate = useNavigate();
 
     const loginHandler = async (e) => {
         e.preventDefault();
+        
         console.log(username);
         console.log(password);
 
+        const userAuth = localStorage.getItem("isAuthenticated");
+
+        setAuthenticated(userAuth);
+
+
         if (authenticated) {
-            console.log();
+            console.log("GO TO DASHBOARD");
+            // navigate("/dashboard");
+            return (
+                navigate("/dashboard")
+            );
+
+        } else {
+
         }
    
         axios.post('http://127.0.0.1:8000/login/', {
@@ -34,6 +48,10 @@ const LoginContent = () => {
             console.log(response.data);
             setAuthenticated(true)
             localStorage.setItem("isAuthenticated", true);
+            console.log("GO TO DASHBAORD");
+            return (
+                navigate("/dashboard")
+            );
         })
         .catch((error) => 
         console.log(error)

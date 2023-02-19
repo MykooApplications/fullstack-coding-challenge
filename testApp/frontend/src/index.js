@@ -25,6 +25,7 @@ root.render (
     <React.StrictMode>
         <BrowserRouter>
             <Routes>
+                <Route path="" element={<DashboardPage />}/>
                 <Route path="login" element={<LoginContent />}/>
                 <Route path="dashboard" element={<DashboardPage />}/>
             </Routes>

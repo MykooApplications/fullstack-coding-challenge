@@ -1,28 +1,31 @@
 // eslint-disable-next-line
-import React, { Component, useContext, useState} from "react";
+import React, { Component, useContext, useEffect, useState} from "react";
+import { Navigate } from "react-router-dom";
 
 // import { Link, Redirect, Navigate} from 'react-router-dom';
 // import DashboardContent from './DashboardContent';
 
-
 const DashboardPage = () => {
 
+  const [authenticated, setAuthenticated] = useState(null);
+  useEffect(() => {
+    const loggedInUser = localStorage.getItem("isAuthenticated");
+    if (loggedInUser) {
+      setAuthenticated(loggedInUser);
+    }
+  }, []);
+
+  if (!authenticated) {
+    return <Navigate replace to ="/login" />;
+  } else {
     return (
-        <div>
-            {/* <DashboardContent /> */}
-            <h1>dashboard</h1>
-        </div>
+      <div>
+          {/* <DashboardContent /> */}
+          <h1>dashboard</h1>
+      </div>
     );
+  }
 
-//     return {
-//         <div className='container mt-5'>
-//             <h1>Sign In</h1>
-//             <p>Sign into your Account</p>
-//             <form onSubmit={(e => onSubmit(e))}>
-
-//             </form>
-//         </div>
-//     };
 };
 
 export default DashboardPage;

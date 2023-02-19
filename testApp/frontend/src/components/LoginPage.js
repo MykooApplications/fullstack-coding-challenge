@@ -1,25 +1,18 @@
-// import React, { Component, useState} from "react";
-// import { Link, Redirect } from 'react-router-dom';
-// import { connect } from 'react-redux';
-// import DashboardPage from "./DashboardPage";
+// eslint-disable-next-line
+import React, { Component, useContext, useState} from "react";
+// eslint-disable-next-line
+import { Link, Redirect, Navigate} from 'react-router-dom';
+import LoginContent from './LoginContent'
 
-// const Login = () => {
-//     const [formData, setFormData] = useState ({
-//         username:'',
-//         password:''
-//     });
 
-//     const { username, password } = formData;
 
-//     const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value});
+const LoginPage = () => {
 
-//     const onSubmit = e => {
-//         e.preventDefault();
-
-//         //login function, username & password
-//     };
-
-//     //is user auth, if yes redirect to dashboard home
+    return (
+        <div>
+            <LoginContent />
+        </div>
+    )
 
 //     return {
 //         <div className='container mt-5'>
@@ -30,9 +23,9 @@
 //             </form>
 //         </div>
 //     };
-// };
+};
 
-// export default Login;
+export default LoginPage;
 
 
 

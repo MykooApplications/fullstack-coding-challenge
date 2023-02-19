@@ -12,8 +12,9 @@ const App = () => {
   return(
     <div>
       <Routes>
-        <Route path='/login' element={<LoginContent/>}/>
-        <Route path='/home' element={<DashboardPage/>}/>
+        <Route path='' element={<LoginContent/>}/>
+        <Route path='login' element={<LoginContent/>}/>
+        <Route path='dashboard' element={<DashboardPage/>}/>
       </Routes>
     </div>
   );

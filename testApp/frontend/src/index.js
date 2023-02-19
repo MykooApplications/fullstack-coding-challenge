@@ -3,34 +3,22 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { BrowserRouter, BrowserRouter as Router, Routes, Route} from 'react-router-dom';
-import LoginContent from './components/LoginContent';
-import DashboardPage from './components/DashboardPage';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+// import LoginContent from './components/LoginContent';
+// import DashboardPage from './components/DashboardPage';
 
-ReactDOM.render(<Router><App /></Router>, document.getElementById('root'));
-
-// ReactDOM.render(
-//     <BrowserRouter>
-//         <Router>
-//             <Route path="/" element={ <App />}/>
-//         </Router>
-//     </BrowserRouter>,
-//      document.getElementById('root')
-// );
+// ReactDOM.render(<Bro><App /></Router>, document.getElementById('root'));
 
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
-
-root.render (
-    <React.StrictMode>
-        <BrowserRouter>
-            <Routes>
-                <Route path="" element={<DashboardPage />}/>
-                <Route path="login" element={<LoginContent />}/>
-                <Route path="dashboard" element={<DashboardPage />}/>
-            </Routes>
-        </BrowserRouter>
-    </React.StrictMode>
+ReactDOM.render(
+    <Router>
+        <Routes>
+            <Route path="/" element={ <App />}/>
+            {/* <Route path="/login" element={ <LoginContent />}/> */}
+            {/* <Route path="/dashboard" element={ <DashboardPage />}/> */}
+        </Routes>
+    </Router>,
+     document.getElementById('root')
 );
 
 // If you want your app to work offline and load faster, you can change

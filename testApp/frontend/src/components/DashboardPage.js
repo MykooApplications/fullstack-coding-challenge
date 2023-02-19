@@ -1,13 +1,15 @@
-// eslint-disable-next-line
-import React, { Component, useContext, useEffect, useState} from "react";
+import React, { useEffect, useState} from "react";
 import { Navigate } from "react-router-dom";
-
 // import { Link, Redirect, Navigate} from 'react-router-dom';
-// import DashboardContent from './DashboardContent';
+import ClosedComplaintsCard from './ClosedComplaintsCard';
+import OpenComplaintsCard from './OpenComplaintsCard';
+import TopComplaintsCard from './TopComplaintCard';
+import ComplaintsListTable from './ComplaintsListTable';
 
 const DashboardPage = () => {
 
   const [authenticated, setAuthenticated] = useState(null);
+
   useEffect(() => {
     const loggedInUser = localStorage.getItem("isAuthenticated");
     if (loggedInUser) {
@@ -20,8 +22,10 @@ const DashboardPage = () => {
   } else {
     return (
       <div>
-          {/* <DashboardContent /> */}
-          <h1>dashboard</h1>
+        <OpenComplaintsCard/>
+        <ClosedComplaintsCard/>
+        <TopComplaintsCard/>
+        <ComplaintsListTable/>
       </div>
     );
   }
@@ -29,10 +33,6 @@ const DashboardPage = () => {
 };
 
 export default DashboardPage;
-
-
-
-
 
 
 /* <div className={classes['container']}>

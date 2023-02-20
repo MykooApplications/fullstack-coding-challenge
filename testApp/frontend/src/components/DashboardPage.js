@@ -1,14 +1,17 @@
 import React, { useEffect, useState} from "react";
-import { Navigate } from "react-router-dom";
+// import { Navigate } from "react-router-dom";
 // import { Link, Redirect, Navigate} from 'react-router-dom';
 import ClosedComplaintsCard from './ClosedComplaintsCard';
 import OpenComplaintsCard from './OpenComplaintsCard';
 import TopComplaintsCard from './TopComplaintCard';
 import ComplaintsListTable from './ComplaintsListTable';
+import './css/dashboard.css'
 
 const DashboardPage = () => {
 
   const [authenticated, setAuthenticated] = useState(null);
+  const userDist = useState(localStorage.getItem("userDistrict"));
+  const userToken = useState(localStorage.getItem("userToken"));
 
   useEffect(() => {
     const loggedInUser = localStorage.getItem("isAuthenticated");
@@ -17,19 +20,21 @@ const DashboardPage = () => {
     }
   }, []);
 
-  if (!authenticated) {
-    return <Navigate replace to ="/login" />;
-  } else {
-    return (
-      <div>
+  console.log(authenticated);
+
+  //console.log(userDist);
+ console.log(userToken);
+  
+  return (
+      <div className="dashboardpage-container">
+        <h1>New York City Council District {userDist} Complaints Dashboard</h1>
         <OpenComplaintsCard/>
         <ClosedComplaintsCard/>
         <TopComplaintsCard/>
         <ComplaintsListTable/>
       </div>
-    );
-  }
-
+  );
+  
 };
 
 export default DashboardPage;

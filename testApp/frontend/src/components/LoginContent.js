@@ -15,6 +15,16 @@ const LoginContent = () => {
     const [authenticated, setAuthenticated] = useState(localStorage.getItem(localStorage.getItem("isAuthenticated") || false));
     const navigate = useNavigate();
 
+    // eslint-disable-next-line
+    const goDashboard= async (e) => {
+        return (
+            navigate("./dashboard")
+            // <Route path="/dashboard" component={<DashboardPage/>}/>
+            // <Navigate replace to="/dashboard"/>
+        );
+    }
+
+
     const loginHandler = async (e) => {
         e.preventDefault();
         
@@ -44,20 +54,23 @@ const LoginContent = () => {
         .then((response) => {
             const splitDistrict = password.split("-");
             const districtNumber = splitDistrict[1];
-            console.log('login response');
-            console.log(response.data);
-            console.log("token");
-            console.log(response.data.token);
-            console.log("district");
-            console.log(districtNumber);
+            // console.log('login response');
+            // console.log(response.data);
+            // console.log("token");
+            // console.log(response.data.token);
+            // console.log("district");
+            // console.log(districtNumber);
             setAuthenticated(true)
             localStorage.setItem("userDistrict", districtNumber);
             localStorage.setItem("userToken", response.data.token);
             localStorage.setItem("isAuthenticated", true);
             console.log("GO TO DASHBAORD");
-            navigate("/dashboard");
+
+            axios.defaults.headers.common['Authorization'] = `Bearer ${response.data.token[0]}`
+
             return (
-                navigate("/dashboard")
+                navigate("dashboard")
+                
                 // <Route path="/dashboard" component={<DashboardPage/>}/>
                 // <Navigate replace to="/dashboard"/>
             );

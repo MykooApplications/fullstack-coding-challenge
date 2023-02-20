@@ -40,8 +40,6 @@ class UserProfileView(viewsets.ModelViewSet):
   http_method_names = ['get']
   serializer = UserProfileSerializer
 
-
-
 class ComplaintViewSet(viewsets.ModelViewSet):
   http_method_names = ['get']
   queryset = Complaint.objects.all()

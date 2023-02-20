@@ -1,20 +1,27 @@
-import React from "react";
-
+import React, {useState, useEffect} from "react";
+import axios from 'axios';
 import './css/opencase.css'
 
-  
-//const API_URL = "http://127.0.0.1:8000/api/complaints/openCases";
-
-const OpenComplaintsCard = (openCases) => {
-
-//  console.log("open cases length");
-  //console.log(openCases.length || 0);
-
-  const numberOfCases = openCases.length || 0;
-
-
-
-
+const OpenComplaintsCard = () => {
+  const numberOfCases = 24;
+  const userToken = useState(localStorage.getItem("userToken"));
+  const token = userToken[0]
+  useEffect(() => {
+    const config = {
+      method: 'get',
+      url: '',
+      headers: {
+        "Authorization" : `Token ${token}`
+      }
+    };
+    axios(config).then(response => {
+      console.log("caseOpen: RESPONSE");
+      console.log(response);
+    }).catch(error => {
+      console.log('caseOpen: ERROR');
+      console.error(error);
+    })
+  });
 
   return (
     <div className="opencases-container">

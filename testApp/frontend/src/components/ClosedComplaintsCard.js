@@ -2,41 +2,31 @@ import React, { useState, useEffect} from "react";
 import './css/closecase.css'
 import axios from 'axios';
 
-
-// export const API_URL = 'http://127.0.0.1:8000/api/complaints/closedCases/';
-// export const getAPIResponse = async(url, token) => {
-//   const { data } = await axios.get(`${API_URL}`, {headers: {Authorization: `Token ${token}/`}});
-//   return data;
-// }
-
 const CloasedComplaintsCard = () => {
   const userToken = useState(localStorage.getItem("userToken"));
   const tkn = userToken[0];
   const numberOfCases = 22;
   console.log(`user token ${tkn}`);
   useEffect(() => {
-    console.log("CLOSE CASE: START FETCH");
+  console.log("CLOSE CASE: START FETCH");
 
-    const configa = {
-      method: 'get',
+  const configa = {
+    method: 'get',
     maxBodyLength: Infinity,
-      url: 'http://127.0.0.1:8000/api/complaints/',
-      headers: { 
-        'Authorization': `Token ${tkn}`
-      }
+    url: 'http://127.0.0.1:8000/api/complaints/',
+    headers: { 
+      'Authorization': `Token ${tkn}`
+    }
     };
     axios(configa)
     .then(response => {
       console.log("CASECLOSE RESPONSE");
       console.log(response);
-      console.log(response.text)
     }).catch(error => {
       console.log("CASECLOSE ERROR");
       console.error(error);
     })
-
   });
-
 
   return (
     <div className="closecase-container">
@@ -45,7 +35,6 @@ const CloasedComplaintsCard = () => {
         <span className="closecase-text1">Closed Cases : {numberOfCases}</span>
         <br></br>
       </span>
-
     </div>
   </div>
   );

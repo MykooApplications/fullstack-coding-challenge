@@ -6,26 +6,11 @@ from rest_framework import status
 
 # Create your views here.
 
-def getProperDistrictNumberFromUser(user):
-  userInfo = UserProfile.objects.filter(user=user).first()
-  districtNumber = getattr(userInfo, 'district')
-  districtLength = len(districtNumber)
-  distictString = "NYCC"
-  if districtLength > 1 :
-    distictString = distictString + districtNumber
-  else :
-    distictString = distictString + "0" + districtNumber 
-  return distictString
-
-class AllComplaintsView(viewsets.ModelViewSet):
-  http_method_names = ['get']
-  serializer = ComplaintSerializer
-  queryset = Complaint.objects.all()
-
-  def list(self, request):
-    queryset = self.queryset
-    serializer = Complaint(queryset, many=True)
-    return Response(serializer.data)
+def getProperDistrictNumberFromDistrict(district):
+  districtLength = len(district)
+  district = district if districtLength > 1 else '0'+ district
+  print(district)
+  return district
 
 class UserProfileView(viewsets.ModelViewSet):
   http_method_names = ['get']
@@ -33,15 +18,12 @@ class UserProfileView(viewsets.ModelViewSet):
 
 class ComplaintViewSet(viewsets.ModelViewSet):
   http_method_names = ['get']
-  # queryset = Complaint.objects.all()
-  # seralizer = ComplaintSerializer(queryset, many=True)
+  queryset = Complaint.objects.all()
+  serializer_class = ComplaintSerializer(queryset, many=True)
   def list(self, request):
     # Get all complaints from the user's district
     # Filter complaints from user's disctict ID
-    userDistrict = getProperDistrictNumberFromUser(request.user)
-    queryset = self.queryset.filter(account=userDistrict)
-    seralizer= ComplaintSerializer(queryset, many=True)
-    return Response(seralizer.data)
+    return Response(self.serializer_class.data)
 
 class OpenCasesViewSet(viewsets.ModelViewSet):
   http_method_names = ['get']
@@ -50,7 +32,7 @@ class OpenCasesViewSet(viewsets.ModelViewSet):
   def list(self, request):
     # Get only the open complaints from the user's district
     # Filter complaints from distrct with no close date
-    userDistrict = getProperDistrictNumberFromUser(request.user)
+    userDistrict = getProperDistrictNumberFromDistrict(request.user)
     queryset = self.queryset.filter(account=userDistrict)
     seralizer = ComplaintSerializer(queryset, many=True)
     return Response(seralizer.data)
@@ -68,16 +50,10 @@ class ClosedCasesViewSet(viewsets.ModelViewSet):
     
 class TopComplaintTypeViewSet(viewsets.ModelViewSet):
   http_method_names = ['get']
-
-  hashset = {}
-  newset = {}
-
-  complaintTypes = Complaint.objects.values('complaint_type', 'account').filter(complaint_type__isnull=False)
-
-
   seralizer = ComplaintSerializer
   def list(self, request):
     # Get the top 3 complaint types from the user's district
     # Display the 3 most common types of compaints from contained distrct
+
     return Response()
     

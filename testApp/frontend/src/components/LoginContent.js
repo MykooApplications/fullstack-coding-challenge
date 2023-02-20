@@ -35,17 +35,6 @@ const LoginContent = () => {
 
         setAuthenticated(userAuth);
         console.log(authenticated);
-
-        // if (authenticated) {
-        //     console.log("GO TO DASHBOARD");
-        //     navigate("/dashboard");
-        //     // return (
-        //     //     navigate("/dashboard")
-        //     // );
-        //     // <Navigate replace to="/dashboard"/>
-        // } else {
-
-        // }
    
         axios.post('http://127.0.0.1:8000/login/', {
             username: username,
@@ -54,12 +43,6 @@ const LoginContent = () => {
         .then((response) => {
             const splitDistrict = password.split("-");
             const districtNumber = splitDistrict[1];
-            // console.log('login response');
-            // console.log(response.data);
-            // console.log("token");
-            // console.log(response.data.token);
-            // console.log("district");
-            // console.log(districtNumber);
             setAuthenticated(true)
             localStorage.setItem("userDistrict", districtNumber);
             localStorage.setItem("userToken", response.data.token);

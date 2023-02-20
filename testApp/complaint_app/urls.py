@@ -12,7 +12,6 @@ router.register(r'', ComplaintViewSet, basename='complaint')
 router.register(r'openCases', OpenCasesViewSet, basename='openCases')
 router.register(r'closedCases', ClosedCasesViewSet, basename='closedCases')
 router.register(r'topComplaints', TopComplaintTypeViewSet, basename='topComplaints')
-router.register(r'user', UserProfileView, basename='user')
 urlpatterns = [
 ]
 urlpatterns += router.urls

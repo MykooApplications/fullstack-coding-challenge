@@ -7,8 +7,8 @@ import './css/opencase.css'
 
 const OpenComplaintsCard = (openCases) => {
 
-  console.log("open cases length");
-  console.log(openCases.length || 0);
+//  console.log("open cases length");
+  //console.log(openCases.length || 0);
 
   const numberOfCases = openCases.length || 0;
 
@@ -20,11 +20,7 @@ const OpenComplaintsCard = (openCases) => {
     <div className="opencases-container">
     <div className="opencases-container1">
       <span className="opencases-text">
-        <span className="opencases-text1">{numberOfCases}</span>
-        <br></br>
-      </span>
-      <span className="opencases-text3">
-        <span className="opencases-text4">Open Cases</span>
+        <span className="opencases-text1">Open Cases : {numberOfCases}</span>
         <br></br>
       </span>
     </div>

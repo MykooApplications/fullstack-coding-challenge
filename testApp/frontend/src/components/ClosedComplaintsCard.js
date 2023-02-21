@@ -8,7 +8,7 @@ const CloasedComplaintsCard = () => {
   const numberOfCases = 22;
   console.log(`user token ${tkn}`);
   useEffect(() => {
-  console.log("CLOSE CASE: START FETCH");
+  console.log("CLOSECASE: START FETCH");
 
   const configa = {
     method: 'get',

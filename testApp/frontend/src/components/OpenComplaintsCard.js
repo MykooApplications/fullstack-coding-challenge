@@ -6,10 +6,11 @@ const OpenComplaintsCard = () => {
   const numberOfCases = 24;
   const userToken = useState(localStorage.getItem("userToken"));
   const token = userToken[0]
+  console.log("caseOpen: Start fetch");
   useEffect(() => {
     const config = {
       method: 'get',
-      url: '',
+      url: 'http://127.0.0.1:8000/api/complaints/',
       headers: {
         "Authorization" : `Token ${token}`
       }

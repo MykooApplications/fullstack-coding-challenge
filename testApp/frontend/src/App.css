@@ -20,3 +20,41 @@
 .App-link {
   color: #09d3ac;
 }
+
+
+.home-container {
+  width: 100%;
+  display: flex;
+  overflow: auto;
+  min-height: 100vh;
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.home-form {
+  height: 241px;
+  display: flex;
+  align-self: center;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.home-text {
+  z-index: 100;
+  text-align: center;
+}
+.home-textinput {
+  margin: var(--dl-space-space-halfunit);
+}
+.home-textinput1 {
+  margin: var(--dl-space-space-halfunit);
+}
+.home-button {
+  width: 218px;
+  margin: 10px;
+  text-align: center;
+  background-color: #a1d487;
+}
+.home-text3 {
+  margin: var(--dl-space-space-halfunit);
+}

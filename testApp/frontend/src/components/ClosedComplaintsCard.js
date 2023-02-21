@@ -28,6 +28,8 @@ const CloasedComplaintsCard = () => {
     })
   });
 
+
+
   return (
     <div className="closecase-container">
     <div className="closecase-container1">

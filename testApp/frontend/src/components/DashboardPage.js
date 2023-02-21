@@ -33,7 +33,8 @@ const DashboardPage = () => {
 
   return (
       <div className="dashboardpage-container">
-        <h1>New York City Council District {userDist} Complaints Dashboard</h1>
+        <h1>New York City Council District {userDist}</h1>
+        <h2>Complaints Dashboard</h2>
         <OpenComplaintsCard/>
         <ClosedComplaintsCard/>
         <TopComplaintsCard/>
